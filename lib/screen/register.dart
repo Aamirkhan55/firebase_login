@@ -11,6 +11,9 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+  final _firstNameController = TextEditingController();
+  final _lastNameController = TextEditingController();
+  final _ageController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
@@ -35,6 +38,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   @override
   void dispose() {
+    _firstNameController.dispose();
+    _lastNameController.dispose();
+    _ageController.dispose();
     _emailController.dispose();
     _passwordController.dispose();
     _confirmPasswordController.dispose();
@@ -49,7 +55,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           child: Column(children: [
         const Icon(
           Icons.android,
-          size: 100,
+          size: 50,
         ),
         const SizedBox(height: 20),
         Text('Hello There',
@@ -58,7 +64,75 @@ class _RegisterScreenState extends State<RegisterScreen> {
             )),
         const SizedBox(height: 10),
         const Text('Register below with your details!'),
-        const SizedBox(height: 50),
+        const SizedBox(height: 30),
+         Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 25.0),
+          child: Container(
+            color: Colors.grey[200],
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.white),
+              borderRadius: BorderRadius.circular(25),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.only(left: 20.0),
+              child: TextField(
+                controller: _firstNameController,
+                keyboardType: TextInputType.emailAddress,
+                decoration: const InputDecoration(
+                  helperText: 'First Name',
+                  fillColor: Colors.grey,
+                  filled: true,
+                ),
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(height: 10),
+         Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 25.0),
+          child: Container(
+            color: Colors.grey[200],
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.white),
+              borderRadius: BorderRadius.circular(25),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.only(left: 20.0),
+              child: TextField(
+                controller: _lastNameController,
+                keyboardType: TextInputType.emailAddress,
+                decoration: const InputDecoration(
+                  helperText: 'Last Name',
+                  fillColor: Colors.grey,
+                  filled: true,
+                ),
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(height: 10),
+         Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 25.0),
+          child: Container(
+            color: Colors.grey[200],
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.white),
+              borderRadius: BorderRadius.circular(25),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.only(left: 20.0),
+              child: TextField(
+                controller: _ageController,
+                keyboardType: TextInputType.emailAddress,
+                decoration: const InputDecoration(
+                  helperText: 'Age',
+                  fillColor: Colors.grey,
+                  filled: true,
+                ),
+              ),
+            ),
+          ),
+        ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25.0),
           child: Container(
